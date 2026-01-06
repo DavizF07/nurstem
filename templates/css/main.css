@@ -1,0 +1,109 @@
+/* =========================================
+   1. VARIABLES & RESET
+   ========================================= */
+:root {
+    /* Paleta de Colores Nurstem */
+    --color-primary-dark: #0D3B66; /* Texto oscuro, Navbar */
+    --color-primary: #1F4E79;      /* Botones, Títulos */
+    --color-secondary: #3B7A99;    /* Cabeceras de tabla, Iconos */
+    --color-accent: #6FA3D8;       /* Detalles, Links */
+    --color-background: #A4C8E1;   /* Fondo general del app */
+    --color-white: #FFFFFF;
+    --color-text-body: #334155;
+    --color-danger: #dc2626;
+    
+    /* Tipografía */
+    --font-base: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-base);
+    background-color: #f0f4f8; /* Un gris muy azulado claro para el fondo */
+    color: var(--color-text-body);
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* =========================================
+   2. LAYOUT GENERAL (Flexbox)
+   ========================================= */
+.main-layout {
+    display: flex;
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+    overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 260px;
+    background-color: var(--color-primary-dark);
+    color: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0; /* No se encoge */
+}
+
+.brand {
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.brand h2 {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--color-white);
+}
+
+.nav-menu {
+    padding: 1rem 0;
+    flex-grow: 1;
+}
+
+.nav-link {
+    display: block;
+    padding: 0.8rem 1.5rem;
+    color: #cbd5e1;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.nav-link:hover, .nav-link.active {
+    background-color: rgba(255,255,255,0.1);
+    color: var(--color-white);
+    border-left: 4px solid var(--color-accent);
+}
+
+/* Área de Contenido Principal */
+.content-area {
+    flex-grow: 1;
+    background-color: #f1f5f9;
+    overflow-y: auto; /* Scroll vertical si el contenido es largo */
+    padding: 2rem;
+}
+
+/* Clases utilitarias */
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: var(--font-base);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-dark);
+}

@@ -1,0 +1,233 @@
+/* =========================================
+   ESTILOS DE ASIGNACIONES (BOARD LAYOUT)
+   ========================================= */
+
+/* Barra Superior de Filtros */
+.shift-controls-bar {
+    background-color: var(--color-white);
+    padding: 1.2rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: flex-end;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.control-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-secondary);
+}
+
+.control-input {
+    padding: 0.6rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-family: var(--font-base);
+    min-width: 200px;
+}
+
+.control-actions {
+    margin-left: auto; /* Empuja el botón a la derecha */
+}
+
+/* Layout del Tablero */
+.board-layout {
+    display: flex;
+    gap: 2rem;
+    height: calc(100vh - 200px); /* Ajuste para llenar pantalla */
+    overflow: hidden;
+}
+
+/* Columna Izquierda (Pool) */
+.pool-column {
+    width: 280px;
+    background-color: #e2e8f0; /* Gris más oscuro para diferenciar zona de espera */
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    border: 1px solid #cbd5e1;
+}
+
+.column-header {
+    padding: 1rem;
+    background-color: var(--color-primary-dark);
+    color: white;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.column-header h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: white; /* Override del global */
+}
+
+.count-badge {
+    background-color: rgba(255,255,255,0.2);
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+}
+
+.card-list {
+    padding: 1rem;
+    overflow-y: auto;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+/* Columna Derecha (Grid de Áreas) */
+.areas-grid {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-auto-rows: min-content; /* Las tarjetas crecen según contenido */
+    gap: 1.5rem;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}
+
+/* Paneles de Área */
+.area-panel {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e2e8f0;
+}
+
+.area-header {
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid #f1f5f9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Colores por especialidad (Opcional pero útil) */
+.header-urgencias { border-left: 5px solid #dc2626; }
+.header-pediatria { border-left: 5px solid #ec4899; }
+.header-cirugia { border-left: 5px solid #2563eb; }
+.header-uci { border-left: 5px solid #7c3aed; }
+
+.area-header h3 {
+    font-size: 1rem;
+    color: var(--color-text-body);
+}
+
+.capacity-indicator {
+    font-size: 0.75rem;
+    color: #64748b;
+    font-weight: 600;
+}
+
+.area-staff-list {
+    padding: 1rem;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    background-color: #f8fafc;
+}
+
+.empty-state {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #94a3b8;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+/* Tarjetas de Personal (Staff Card) */
+.staff-card {
+    background-color: white;
+    padding: 0.8rem;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+    cursor: grab;
+    transition: box-shadow 0.2s;
+}
+
+.staff-card:hover {
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.staff-avatar {
+    width: 36px;
+    height: 36px;
+    background-color: var(--color-accent);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.staff-info h4 {
+    font-size: 0.9rem;
+    color: var(--color-primary-dark);
+    margin-bottom: 0.1rem;
+    font-weight: 600;
+}
+
+.staff-info p {
+    font-size: 0.75rem;
+    color: #64748b;
+    margin: 0;
+}
+
+.role-pill {
+    margin-left: auto;
+    font-size: 0.7rem;
+    background-color: var(--color-secondary);
+    color: white;
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+}
+
+.btn-icon-small {
+    margin-left: auto;
+    background: none;
+    border: none;
+    color: var(--color-accent);
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .board-layout {
+        flex-direction: column;
+        height: auto;
+    }
+    .pool-column {
+        width: 100%;
+        height: 200px; /* Limitar altura en móvil */
+    }
+    .areas-grid {
+        padding-right: 0;
+    }
+}

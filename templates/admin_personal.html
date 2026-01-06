@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Personal - Nurstem</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+    <div class="main-layout">
+        
+        <aside class="sidebar">
+            <div class="brand">
+                <h2>Nurstem</h2>
+            </div>
+            <nav class="nav-menu">
+                <a href="admin_dashboard.html" class="nav-link">Dashboard</a>
+                <a href="admin_personal.html" class="nav-link active">Personal</a>
+                <a href="admin_pacientes.html" class="nav-link">Pacientes</a>
+                <a href="admin_asignaciones.html" class="nav-link">Asignaciones</a>
+                <a href="admin_inventario.html" class="nav-link">Inventario</a>
+                <a href="admin_capacitacion.html" class="nav-link">Capacitación</a>
+                <a href="#" class="nav-link">Cerrar Sesión</a>
+            </nav>
+        </aside>
+
+        <main class="content-area">
+            
+            <div class="module-container">
+                <div class="toolbar">
+                    <div class="toolbar-info">
+                        <h1>Personal de Enfermería</h1>
+                        <p>Gestión de altas, bajas y asignación de roles</p>
+                    </div>
+                    <div class="toolbar-actions">
+                        <input type="text" class="search-bar" placeholder="Buscar por nombre o ID...">
+                        
+                        <button class="btn-primary" onclick="openModal()">
+                            <span>+</span> Nuevo Enfermero
+                        </button>
+                    </div>
+                </div>
+            
+                <div class="table-responsive">
+                    <table class="table-data">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre Completo</th>
+                                <th>Rol / Nivel</th>
+                                <th>Teléfono</th>
+                                <th>Área Actual</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#101</td>
+                                <td>
+                                    <div class="user-name">Patch Addams</div>
+                                    <div class="user-email">capacitacion@nurstem.com</div>
+                                </td>
+                                <td>Jefe Capacitación</td>
+                                <td>55 1020 3040</td>
+                                <td>Oficina Central</td>
+                                <td><span class="status-badge status-active">Activo</span></td>
+                                <td>
+                                    <button class="btn-icon" title="Editar">✎</button>
+                                    <button class="btn-icon btn-delete" title="Baja">🗑</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#102</td>
+                                <td>
+                                    <div class="user-name">Lula Enfermera</div>
+                                    <div class="user-email">pediatria@nurstem.com</div>
+                                </td>
+                                <td>Jefe de Piso</td>
+                                <td>55 9988 7766</td>
+                                <td>Pediatría</td>
+                                <td><span class="status-badge status-active">Activo</span></td>
+                                <td>
+                                    <button class="btn-icon" title="Editar">✎</button>
+                                    <button class="btn-icon btn-delete" title="Baja">🗑</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#103</td>
+                                <td>
+                                    <div class="user-name">Juan Pérez</div>
+                                    <div class="user-email">juan.p@nurstem.com</div>
+                                </td>
+                                <td>Enfermero General</td>
+                                <td>55 4433 2211</td>
+                                <td>Urgencias (Rotante)</td>
+                                <td><span class="status-badge status-inactive">Inactivo</span></td>
+                                <td>
+                                    <button class="btn-icon" title="Editar">✎</button>
+                                    <button class="btn-icon btn-delete" title="Baja">🗑</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <div id="modalPersonal" class="modal">
+        <div class="modal-content">
+            <h2 class="modal-title">Registrar Nuevo Personal</h2>
+            <form action="#" method="POST"> <div class="form-group">
+                    <label for="nombre">Nombre(s)</label>
+                    <input type="text" id="nombre" name="nombre" class="form-input" required placeholder="Ej. Juan Carlos">
+                </div>
+                
+                <div class="form-group">
+                    <label for="apellidos">Apellidos</label>
+                    <input type="text" id="apellidos" name="apellidos" class="form-input" required placeholder="Ej. Pérez López">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-half">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono" class="form-input" placeholder="55 1234 5678">
+                    </div>
+                    <div class="form-group col-half">
+                        <label for="rol">Rol Asignado</label>
+                        <select id="rol" name="rol_id" class="form-select" required>
+                            <option value="">Seleccione...</option>
+                            <option value="1">Jefe de Piso</option>
+                            <option value="2">Enfermero General</option>
+                            <option value="3">Coordinador</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="direccion">Dirección</label>
+                    <input type="text" id="direccion" name="direccion" class="form-input" placeholder="Calle, Número, Colonia">
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancel" onclick="closeModal()">Cancelar</button>
+                    <button type="submit" class="btn-primary">Guardar Registro</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('modalPersonal');
+
+        function openModal() {
+            modal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            modal.style.display = 'none';
+        }
+
+        // Cerrar al dar clic fuera del modal
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
